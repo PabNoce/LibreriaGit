@@ -5,6 +5,10 @@
  */
 package com.mycompany.mavenproject;
 
+import java.io.IOException;
+import org.kohsuke.github.GHCreateRepositoryBuilder;
+import org.kohsuke.github.GitHub;
+
 /**
  *
  * @author pnocedalopez
@@ -14,8 +18,24 @@ public class Principal {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    static GitHub github;
+
+    public static void main(String[] args) throws IOException {
+        github = GitHub.connect();
+        nuevoRepositorio("MavenNewRepository");
     }
-    
+
+    /**
+     * Crea un repositorio en github
+     *
+     * @param repoNombre nombre del repositorio
+     * @throws IOException
+     */
+    public static void nuevoRepositorio(String repoNombre) throws IOException {
+        GHCreateRepositoryBuilder repo = github.createRepository(repoNombre);
+        repo.autoInit(true).create();
+        System.out.println("Listo");
+    }
 }
+
+
