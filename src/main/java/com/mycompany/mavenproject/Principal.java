@@ -41,6 +41,8 @@ public class Principal {
                     nuevoRepositorio(JOptionPane.showInputDialog("Introduce nombre del repositorio"));
                     break;
                 }
+                //Falta borrar repositorio
+                //Falta hacer commit
                 case 4: {
                     Git.cloneRepository().setURI("https://github.com/PabNoce/MaquinaCafeCD.git")
                             .setDirectory(new File("/home/local/DANIELCASTELAO/pnocedalopez/NetBeansProjects/MavenProject/.git/"))
